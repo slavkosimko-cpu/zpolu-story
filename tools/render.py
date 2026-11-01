@@ -80,7 +80,7 @@ for T, p in zip(TOPS, data["ponuky"]):
 
     # termín • noci • strava • ✈ odlet
     calendar(448, T + 293)
-    head = "  •  ".join([p["termin"], f'{p["noci"]} nocí', p["strava"]]) + "  •  "
+    head = "  •  ".join([p["termin"], (f'{p["noci"]} noc' if int(p["noci"])==1 else f'{p["noci"]} noci' if 2<=int(p["noci"])<=4 else f'{p["noci"]} nocí'), p["strava"]]) + "  •  "
     # letecky: "odlet": "Bratislava"; inak (lyžovačka, autobus): "doprava": "autobus" / "vlastná"
     if p.get("odlet"):
         icon, tail = "✈", f'odlet {p["odlet"]}'
